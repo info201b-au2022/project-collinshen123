@@ -20,6 +20,7 @@
 **Date:** Autumn 2022
 
 **Abstract:**
+
 In this project, we are concerned with the issue of obesity, specifically, the prevalence of the rates in the US. This topic is important because according to the data collected from the National Institutes of Health (NIH), more than 2 in 5 adults (42.4%) have obesity and almost 1 in 5 children and adolescents ages 2 to 19 (19.3%) have obesity. To address this concern we plan to analyze datasets to examine the many factors that contribute to this issue.
 
 **Keywords:** 
