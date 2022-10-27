@@ -31,7 +31,7 @@ In this project, we are concerned with the issue of obesity, specifically, the p
 
 **Introduction:** “It is health that is the real wealth, and not pieces of gold and silver.” – Mahatma Gandhi.
 
-**The Problem Domain:**
+# **The Problem Domain:**
 
 **Project framing:**
 Referencing The New York Times, a study done by medical scientists, “…projected that by 2030, nearly one in two adults will be obese,” (Brody). The problem domain we are presenting concerns obesity in the U.S. and as it persists, the factors correlated to this issue. The questions that we strive to address are: how do exercise habits of adults influence obesity rates, how would genetics and metabolism affect obesity, how does geography affect obesity, how does race/ethnicity affect obesity, and how does school funding impact childhood obesity rates/how does Economic status affect obesity?
