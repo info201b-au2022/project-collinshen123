@@ -1,4 +1,5 @@
-# Study of Obesity in America 
+# P1: Project Proposal
+## Study of Obesity in America 
 
 **Code name:** Yum Yum
 
@@ -7,8 +8,6 @@
 - Jaime Li (jaimel3@uw.edu)
 - Collin Shen (cshen123@uw.edu)
 - Erzhan Umarov (erzhan23@uw.edu)
-
-## P1: Project Proposal
 
 **Variables: Obesity % vs…**  
 - Economic standing
