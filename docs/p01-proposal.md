@@ -1,7 +1,7 @@
 # Study of Obesity in America 
 
 **Code name:** Yum Yum
-test test
+
 **Authors:**
 - Kailynn Nguyen (knguye7@uw.edu)
 - Jaime Li (jaimel3@uw.edu)
