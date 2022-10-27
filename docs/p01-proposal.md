@@ -65,7 +65,7 @@ Region vs Obesity Rates
 **Limitations:**
 There isn't one set factor that contributes to obesity. There are some factors such as having a high metabolism that vary from person to person. Genetic attributes like these are hard to gather data for. Another limitation is that there is not enough data to represent everyone in the US. Even if there was, it would be extremely hard for us to process all the data. Everyone’s body makeup is unique and there are different factors that can all contribute to obesity. This makes having more data a better representation of the US population.
 
-**References:**  
+## References: 
 “Overweight & Obesity Statistics.” National Institute of Diabetes and Digestive and Kidney Diseases, U.S. Department of Health and Human Services, https://www.niddk.nih.gov/health-information/health-statistics/overweight-obesity.   
 
 Puhl, Rebecca M, and Chelsea A Heuer. “Obesity Stigma: Important Considerations for Public Health.” American Journal of Public Health, American Public Health Association, June 2010, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2866597/#:~:text=Numerous%20studies%20have%20documented%20harmful,noncompliant%20with%20weight%2Dloss%20treatment.
