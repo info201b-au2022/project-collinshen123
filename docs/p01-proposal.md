@@ -51,19 +51,36 @@ If interventions are taken with data and technology, a possible benefit could be
 How does childhood obesity affect adult obesity rates?
 
 **The Dataset:**
-Region vs Obesity Rates
+Region vs Obesity Rates:  
+The data comes from the Behavioral Risk Factor Surveillance System, an on-going state-based, telephone interview survey conducted by CDC and state health departments. Based on our small observation, we can conclude that this is the most reliable and interesting dataset to work with. The dataset below describes the obesity prevalence in 49 states(except for Florida), DC and 3 US territories in 2021, which shows us the self-reported adult obesity prevalence by region, ethnicity and race. The 2021 maps show that obesity impacts some groups more than others, which in our opinion leads to another factor - economic standing. There are notable differences across the states and territories, as shown by combined data from 2019–2021:
+- All states and territories had more than 20% of adults with obesity.
+- 20% to less than 25% of adults had obesity in the District of Columbia.
+- 25% to less than 30% of adults had obesity in 8 states.
+- 30% to less than 35% of adults had obesity in 22 states and Guam.
+- 35% to less than 40% of adults had obesity in 17 states, Puerto Rico and Virgin Islands.
+- 40% or more adults had obesity in 2 states (Kentucky and West Virginia).
+- The South (36.3%) had the highest prevalence of obesity, followed by the Midwest (35.4%), the Northeast (29.9%), and the West (28.7%).  
+- 
+Increased BMI is one of the main risk factors for non-communicable diseases such as:
 
-## Obesity prevalence by state 2021
+- cardiovascular diseases (mainly heart disease and stroke), which were the main cause of death in 2012
+- diabetes
+- disorders of the musculoskeletal system (especially osteoarthritis — an extremely disabling degenerative joint disease)
+- some oncological diseases (including cancer of the endometrium, breast, ovary, prostate, liver, gallbladder, kidney and colon)
+- The risk of these non-communicable diseases increases as the BMI increases.
+
+Childhood obesity increases the likelihood of obesity, premature death and disability in adulthood. In addition to the increased risk in the future, obese children also experience shortness of breath, are at increased risk of fractures, are prone to hypertension, early signs of cardiovascular disease, insulin resistance and may experience psychological problems.
 
 
-
-**Expected Implications:** We expect the data to imply that communities with lower incomes experience higher rates of obesity, due to the fact that eating unhealthy processed foods in America has become significantly cheaper than eating a balanced diet. We also suspect that historically marginalized groups of people (such as African Americans) will experience disproportionate rates of obesity because these groups usually have less access to healthy food and health resources. The data will most likely imply that factors that affect an individual’s economic status, such as race and location, are what affect a person’s likelihood of obesity.
+**Expected Implications:** We expect the data to imply that communities with lower incomes experience higher rates of obesity, due to the fact that eating unhealthy processed foods in America has become significantly [cheaper than eating a balanced diet](https://www.hsph.harvard.edu/news/press-releases/healthy-vs-unhealthy-diet-costs-1-50-more/). We also suspect that historically marginalized groups of people (such as African Americans) will experience disproportionate rates of obesity because these groups usually have less access to healthy food and health resources. The data will most likely imply that factors that affect an individual’s economic status, such as race and location, are what affect a person’s likelihood of obesity.
 
 
 **Limitations:**
 There isn't one set factor that contributes to obesity. There are some factors such as having a high metabolism that vary from person to person. Genetic attributes like these are hard to gather data for. Another limitation is that there is not enough data to represent everyone in the US. Even if there was, it would be extremely hard for us to process all the data. Everyone’s body makeup is unique and there are different factors that can all contribute to obesity. This makes having more data a better representation of the US population.
 
 **References:**  
+“Eating Healthy Vs. Unhealthy Diet Costs About $1.50 More per Day.” News, 13 Jan. 2014, www.hsph.harvard.edu/news/press-releases/healthy-vs-unhealthy-diet-costs-1-50-more.
+
 “Overweight & Obesity Statistics.” National Institute of Diabetes and Digestive and Kidney Diseases, U.S. Department of Health and Human Services, https://www.niddk.nih.gov/health-information/health-statistics/overweight-obesity.   
 
 Puhl, Rebecca M, and Chelsea A Heuer. “Obesity Stigma: Important Considerations for Public Health.” American Journal of Public Health, American Public Health Association, June 2010, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2866597/#:~:text=Numerous%20studies%20have%20documented%20harmful,noncompliant%20with%20weight%2Dloss%20treatment.
@@ -71,10 +88,3 @@ Puhl, Rebecca M, and Chelsea A Heuer. “Obesity Stigma: Important Consideration
 Brody, Jane E. “Half of Us Face Obesity, Dire Projections Show.” The New York Times, The New York Times, 10 Feb. 2020, https://www.nytimes.com/2020/02/10/well/live/half-of-us-face-obesity-dire-projections-show.html.
 
 Pearce, Claire, et al. “Obesity Prevention and the Role of Hospital and Community-Based Health Services: A Scoping Review - BMC Health Services Research.” BioMed Central, BioMed Central, 5 July 2019, https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-019-4262-3#:~:text=Being%20obese%20is%20a%20major,diabetes%20%5B3%2C%204%5D.
-
-
-
-For what to do, see the [`../instructions/`](../instructions/) directory, specifically:
-
-* [Design Brief](../instructions/project-design-brief.pdf)
-* [Project Proposal Requirements](../instructions/p01-proposal-requirements.md)
