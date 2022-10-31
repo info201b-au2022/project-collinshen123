@@ -50,8 +50,8 @@ If interventions are taken with data and technology, a possible benefit could be
 4. How does school funding impact childhood obesity rates? In lots of cases, schools do not serve very healthy lunches so this may have a correlation to obesity. These statistics are almost directly related to how much funding the school receives for providing meals. Similarly, how does Economic status affect obesity? A family’s ability to provide meals for their children also depends on their economic standing and how much they can afford for food.
 How does childhood obesity affect adult obesity rates?
 
-**The Dataset:**
-Region vs Obesity Rates:  
+**The Dataset:**  
+Region vs Obesity Rates:   
 The data comes from the Behavioral Risk Factor Surveillance System, an on-going state-based, telephone interview survey conducted by CDC and state health departments. Based on our small observation, we can conclude that this is the most reliable and interesting dataset to work with. The dataset below describes the obesity prevalence in 49 states(except for Florida), DC and 3 US territories in 2021, which shows us the self-reported adult obesity prevalence by region, ethnicity and race. The 2021 maps show that obesity impacts some groups more than others, which in our opinion leads to another factor - economic standing. There are notable differences across the states and territories, as shown by combined data from 2019–2021:
 - All states and territories had more than 20% of adults with obesity.
 - 20% to less than 25% of adults had obesity in the District of Columbia.
@@ -60,7 +60,7 @@ The data comes from the Behavioral Risk Factor Surveillance System, an on-going 
 - 35% to less than 40% of adults had obesity in 17 states, Puerto Rico and Virgin Islands.
 - 40% or more adults had obesity in 2 states (Kentucky and West Virginia).
 - The South (36.3%) had the highest prevalence of obesity, followed by the Midwest (35.4%), the Northeast (29.9%), and the West (28.7%).  
-- 
+
 Increased BMI is one of the main risk factors for non-communicable diseases such as:
 
 - cardiovascular diseases (mainly heart disease and stroke), which were the main cause of death in 2012
