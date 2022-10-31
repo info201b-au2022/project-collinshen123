@@ -79,7 +79,7 @@ Childhood obesity increases the likelihood of obesity, premature death and disab
 There isn't one set factor that contributes to obesity. There are some factors such as having a high metabolism that vary from person to person. Genetic attributes like these are hard to gather data for. Another limitation is that there is not enough data to represent everyone in the US. Even if there was, it would be extremely hard for us to process all the data. Everyone’s body makeup is unique and there are different factors that can all contribute to obesity. This makes having more data a better representation of the US population.
 
 **References:**  
-“Eating Healthy Vs. Unhealthy Diet Costs About $1.50 More per Day.” News, 13 Jan. 2014, www.hsph.harvard.edu/news/press-releases/healthy-vs-unhealthy-diet-costs-1-50-more.
+“Eating Healthy Vs. Unhealthy Diet Costs About $1.50 More per Day.” Harvard School of Public Health News, 5 Dec. 2013, www.hsph.harvard.edu/news/press-releases/healthy-vs-unhealthy-diet-costs-1-50-more.
 
 “Overweight & Obesity Statistics.” National Institute of Diabetes and Digestive and Kidney Diseases, U.S. Department of Health and Human Services, https://www.niddk.nih.gov/health-information/health-statistics/overweight-obesity.   
 
