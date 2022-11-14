@@ -1,20 +1,13 @@
 # Table for Part 2
 
 # Joining data for each state from exercise, race, and overall
+library(readxl)
 library(dplyr)
-
-# Getting data table of exercise (male and female for 2011)
-data_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Physical_Activity_Table.csv")
+data_table <- read_excel("C://Users/fatni/documents/info201/project-collinshen123/data/Physical_Activity_Table.xlsx")
 data_table <- data_table %>% 
-  filter(County == "") %>% 
-  select(State, Male.sufficient.physical.activity.prevalence..2001...., Female.sufficient.physical.activity..prevalence..2011.....)
+  filter(is.na(County)) %>% 
+  select(State, `Male sufficient physical activity  prevalence, 2011* (%)`, `Female sufficient physical activity  prevalence, 2011* (%)`)
 
-colnames(data_table)[colnames(data_table) == "Male.sufficient.physical.activity.prevalence..2001...."] <- "Male Sufficient Physical Activity Prevalence"
-colnames(data_table)[colnames(data_table) == "Female.sufficient.physical.activity..prevalence..2011....."] <- "Female Sufficient Physical Activity Prevalence"
-
-View(data_table)
-
-# Getting table of obesity rate by race
 white_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/White_Obesity_Rates.csv")
 asian_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Asian_Obesity_Rates.csv")
 AIAN_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/AIAN_Obesity_Rates.csv")
@@ -53,22 +46,13 @@ race_table <- race_table[-c(55), ]
 
 View(race_table)
 
-# Get overall obesity rate per state for male and female
-overall_obesity <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/County_Obesity_Table.csv")
+race_washington <- c(29.3, 9.9, 42.5, 35.4, 34.4)
+barplot(race_washington,
+main = "% Obesity by Race in Washington",
+xlab = "Race",
+ylab = "% Obesity",
+names.arg = c("White", "Asian", "AI/AN", "Black", "Hispanic"),
+col = "red",
+ylim=c(0,100),
+horiz = FALSE)
 
-overall_obesity <- overall_obesity %>% 
-  filter(County == "") %>% 
-  select(State, Male.obesity..prevalence..2011....., Female.obesity.prevalence..2011.....) 
-
-colnames(overall_obesity)[colnames(overall_obesity) == "Male.obesity..prevalence..2011....."] <- "Male Obesity Prevalence"
-colnames(overall_obesity)[colnames(overall_obesity) == "Female.obesity.prevalence..2011....."] <- "Female Obesity Prevalence"
-
-View(overall_obesity)
-
-# Join all tables 
-
-data_table <- data_table %>% 
-  left_join(overall_obesity, by = "State") %>% 
-  left_join(race_table, by = "State")
-
-View(data_table)
