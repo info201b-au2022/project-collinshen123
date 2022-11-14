@@ -8,15 +8,14 @@ data_table <- data_table %>%
   filter(is.na(County)) %>% 
   select(State, `Male sufficient physical activity  prevalence, 2011* (%)`, `Female sufficient physical activity  prevalence, 2011* (%)`)
 
-white_table <- read.csv("C://Users/fatni/documents/info201/project-collinshen123/data/White_Obesity_Rates.csv")
-asian_table <- read.csv("C://Users/fatni/documents/info201/project-collinshen123/data/Asian_Obesity_Rates.csv")
-AIAN_table <- read.csv("C://Users/fatni/documents/info201/project-collinshen123/data/AIAN_Obesity_Rates.csv")
-black_table <- read.csv("C://Users/fatni/documents/info201/project-collinshen123/data/Black_Obesity_Rates.csv")
-hispanic_table <- read.csv("C://Users/fatni/documents/info201/project-collinshen123/data/Hispanic_Obesity_Rates.csv")
+white_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/White_Obesity_Rates.csv")
+asian_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Asian_Obesity_Rates.csv")
+AIAN_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/AIAN_Obesity_Rates.csv")
+black_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Black_Obesity_Rates.csv")
+hispanic_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Hispanic_Obesity_Rates.csv")
 
 filter_columns <- function(table) {
-  table <- table %>% 
-    select(State, Prevalence)
+  table <- select(table, State, Prevalence)
   
   table[table == "Insufficient data*"] <- NA
   
@@ -43,6 +42,6 @@ race_table <- left_join(white_table, asian_table, by = "State") %>%
   left_join(black_table, by = "State") %>% 
   left_join(hispanic_table, by = "State")
 
-race_table <- filter(race_table, )
+race_table <- race_table[-c(55), ]
 
 View(race_table)
