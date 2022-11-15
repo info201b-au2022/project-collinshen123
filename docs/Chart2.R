@@ -6,7 +6,7 @@ AsianRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/projec
 WhiteRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/White_Obesity_Rates.csv", stringsAsFactors = FALSE )
 BlackRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Black_Obesity_Rates.csv", stringsAsFactors = FALSE )
 HispanicRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Hispanic_Obesity_Rates%20.csv", stringsAsFactors = FALSE )
-AIANRates <- read.csv("/Users/frank/Documents/Collin/code/info201/project-collinshen123/data/AIAN_Obesity_Rates.csv", stringsAsFactors = FALSE )
+AIANRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/AIAN_Obesity_Rates.csv", stringsAsFactors = FALSE )
 
 
 
@@ -36,11 +36,18 @@ Hispanic_in_Wa <- HispanicRates%>%
 updated_table3 <- updated_table2 %>%
   rbind(Hispanic_in_Wa)
 
+AIAN_in_Wa <- AIANRates%>%
+  mutate(Race = "AIAN in WA")%>%
+  filter(str_detect(State, "Washington"))
+
+updated_table4 <- updated_table3 %>%
+  rbind(AIAN_in_Wa)
+
 install.packages("tidyverse")
 install.packages("ggplot2")
 library(ggplot2)
 
 
-ggplot(data = updated_table) + 
+ggplot(data = updated_table4) + 
   geom_col(mapping = aes(x = Prevalence, y = Race))
 
