@@ -1,47 +1,30 @@
 # Table for Part 2
 
-# Joining data for each state from exercise, race, and overall
-library(readxl)
+# Joining data for each state for exercise and overall obesity rate
 library(dplyr)
-data_table <- read_excel("C://Users/fatni/documents/info201/project-collinshen123/data/Physical_Activity_Table.xlsx")
-data_table <- data_table %>% 
-  filter(is.na(County)) %>% 
-  select(State, `Male sufficient physical activity  prevalence, 2011* (%)`, `Female sufficient physical activity  prevalence, 2011* (%)`)
+exercise_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Physical_Activity_Table.csv")
 
-white_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/White_Obesity_Rates.csv")
-asian_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Asian_Obesity_Rates.csv")
-AIAN_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/AIAN_Obesity_Rates.csv")
-black_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Black_Obesity_Rates.csv")
-hispanic_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Hispanic_Obesity_Rates%20.csv")
+#group by state
+exercise_table <- exercise_table %>% 
+  group_by(State) 
+View(exercise_table)
 
-filter_columns <- function(table) {
-  table <- select(table, State, Prevalence)
-  
-  table[table == "Insufficient data*"] <- NA
-  
-  return(table)
-}
+# Create more readable column names
+colnames(exercise_table) <- c("State", "County", "Male Sufficient PA Prevalence 2001", "Female Sufficient PA Prevalence 2001",
+                              "Male Sufficient PA Prevalence 2009", "Female Sufficient PA Prevalence 2009", "Male Sufficient PA Prevalence 2011",
+                              "Female Sufficient PA Prevalence 2011", "Male Sufficient PA Prevalence Difference 2001-2009", 
+                              "Female Sufficient PA Prevalence Difference 2001-2009")
 
-white_table <- filter_columns(white_table)
-colnames(white_table)[colnames(white_table) == "Prevalence"] <- "White Obesity Rate"
+overall_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/County_Obesity_Table.csv")
+View(overall_table)
 
-asian_table <- filter_columns(asian_table)
-colnames(asian_table)[colnames(asian_table) == "Prevalence"] <- "Asian Obesity Rate"
+# Change col names
+colnames(overall_table) <- c("State", "County", "Male Obesity Rate 2001", "Female Obesity Rate 2001",
+                              "Male Obesity Rate 2009", "Female Obesity Rate 2009", "Male Obesity Rate 2011",
+                              "Female Obesity Rate 2011", "Male Obesity Rate Difference 2001-2009", 
+                              "Female Obesity Rate Difference 2001-2009")
 
-AIAN_table <- filter_columns(AIAN_table)
-colnames(AIAN_table)[colnames(AIAN_table) == "Prevalence"] <- "American Indian/Alaskan Native Obesity Rate"
-
-black_table <- filter_columns(black_table)
-colnames(black_table)[colnames(black_table) == "Prevalence"] <- "Black Obesity Rate"
-
-hispanic_table <- filter_columns(hispanic_table)
-colnames(hispanic_table)[colnames(hispanic_table) == "Prevalence"] <- "Hispanic Obesity Rate"
-
-race_table <- left_join(white_table, asian_table, by = "State") %>% 
-  left_join(AIAN_table, by = "State") %>% 
-  left_join(black_table, by = "State") %>% 
-  left_join(hispanic_table, by = "State")
-
-race_table <- race_table[-c(55), ]
-
-View(white_table)
+#group by state
+overall_table <- overall_table %>% 
+  group_by(State) %>% 
+  left_join(exercise_table, by = c("State" = "State", "County" = "County")) 
