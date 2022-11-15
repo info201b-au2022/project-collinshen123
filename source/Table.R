@@ -19,7 +19,7 @@ white_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/proje
 asian_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Asian_Obesity_Rates.csv")
 AIAN_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/AIAN_Obesity_Rates.csv")
 black_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Black_Obesity_Rates.csv")
-hispanic_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Hispanic_Obesity_Rates.csv")
+hispanic_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Hispanic_Obesity_Rates%20.csv")
 
 filter_columns <- function(table) {
   table <- select(table, State, Prevalence)
@@ -51,7 +51,7 @@ race_table <- left_join(white_table, asian_table, by = "State") %>%
 
 race_table <- race_table[-c(55), ]
 
-View(race_table)
+View(white_table)
 
 # Get overall obesity rate per state for male and female
 overall_obesity <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/County_Obesity_Table.csv")
