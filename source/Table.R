@@ -45,14 +45,3 @@ race_table <- left_join(white_table, asian_table, by = "State") %>%
 race_table <- race_table[-c(55), ]
 
 View(white_table)
-
-race_washington <- c(29.3, 9.9, 42.5, 35.4, 34.4)
-barplot(race_washington,
-main = "% Obesity by Race in Washington",
-xlab = "Race",
-ylab = "% Obesity",
-names.arg = c("White", "Asian", "AI/AN", "Black", "Hispanic"),
-col = "red",
-ylim=c(0,100),
-horiz = FALSE)
-
