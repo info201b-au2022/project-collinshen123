@@ -1,6 +1,6 @@
 ---
-title: "Your Project Title"
-author: "project team members"
+title: "Analysis of Obesity in the US"
+author: "Collin, Erzhan, Jaime, Kailynn"
 date: "Autumn 2022"
 output: html_document
 ---
