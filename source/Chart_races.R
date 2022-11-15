@@ -1,9 +1,6 @@
 
 library(dplyr)
 library(stringr)
-
-install.packages("tidyverse")
-install.packages("ggplot2")
 library(ggplot2)
 
 AsianRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Asian_Obesity_Rates.csv", stringsAsFactors = FALSE )
