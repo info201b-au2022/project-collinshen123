@@ -18,16 +18,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ## ACCESSING THE /source DIRECTORY
 ### Example 1: Source some code and run a function
 ```{r}
+library(dplyr)
 source("../source/chart1.R")
+source("../source/Chart2.R")
+# source("../source/Chart3.R")
+
 ```
 
 ### Example 2: Initialize a variable and then use it
-```{r}
-# Example 1: This function was "sourced" above
-msg <- data_access_test(" Morgan!")
-```
-
-> `r msg` Hope you have a good day!! 
 
 ## ABOUT THIS FILE: 
 
@@ -39,12 +37,17 @@ When you click the **Knit** button a document will be generated that includes bo
 summary(cars)
 ```
 
-## Including Plots
+## Plots:
 
-You can also embed plots, for example:
+Plot 1: Female Physical Activity Percentage vs Female Obesity Prevalence
 
 ```{r female_physical_activity, echo=FALSE}
 plot(female_physical_activity)
+```
+
+```{r WhiteRates, echo=FALSE}
+ggplot(data = WhiteRates) + 
+  geom_col(mapping = aes(x = Prevalence, y = Race))
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

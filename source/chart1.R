@@ -16,7 +16,6 @@ female_obesity <- female_obesity %>%
 colnames(female_obesity)[colnames(female_obesity) == "Female.obesity.prevalence..2011....."] <- "Female Obesity Prevalence (%)"
 
 female_physical_activity <- left_join(female_physical_activity, female_obesity, by = "State") %>% 
-  female_physical_activity <- left_join(female_physical_activity, female_obesity, by = "State") %>%
   drop_na() %>% 
   select (-State)
 
