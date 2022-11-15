@@ -18,11 +18,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ## ACCESSING THE /source DIRECTORY
 ### Example 1: Source some code and run a function
 ```{r}
-library(dplyr)
 source("../source/chart1.R")
-source("../source/Chart2.R")
-# source("../source/Chart3.R")
-
+source("../source/Chart_state.R")
+source("../source/Chart_races.R")
 ```
 
 ### Example 2: Initialize a variable and then use it
@@ -47,7 +45,15 @@ plot(female_physical_activity)
 
 ```{r WhiteRates, echo=FALSE}
 ggplot(data = WhiteRates) + 
-  geom_col(mapping = aes(x = Prevalence, y = Race))
+  geom_col(mapping = aes(x = Prevalence, y = State)) +
+  xlim(0, 100)
 ```
 
+```{r updated_table4, echo=FALSE}
+ggplot(data = updated_table4) + 
+  geom_col(mapping = aes(x = State, y = Prevalence, fill = Race), position = "dodge") + 
+  ggtitle("Obesity across races grouped by state") + 
+  ylim(0, 100)
+
+```
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
