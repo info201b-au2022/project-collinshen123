@@ -27,7 +27,8 @@ colnames(overall_table) <- c("State", "County", "Male Obesity Rate 2001", "Femal
 #group by state
 overall_table <- overall_table %>% 
   group_by(State) %>% 
-  left_join(exercise_table, by = c("State" = "State", "County" = "County")) 
+  left_join(exercise_table, by = c("State" = "State", "County" = "County"))
 
 # The table is way too large to be displayed as is, reduce it down to states only
-overall_table <- filter(overall_table, County == "")
+overall_table <- filter(overall_table, County == "") %>% 
+  select(-County)

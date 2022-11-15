@@ -9,41 +9,41 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## What is this file for?
-
-* This file will eventually become your project report for **P02: Exploratory Data Analysis**. Specifically, you will write rmarkdown to report your exploratory data analysis.
-
-* Please see Canvas for more details.
-
-## ACCESSING THE /source DIRECTORY
-### Example 1: Source some code and run a function
-```{r}
+```{r, include=FALSE}
+source("../source/Table.R")
+source("../source/summary_info.R")
 source("../source/chart1.R")
 source("../source/Chart_state.R")
 source("../source/Chart_races.R")
+library(kableExtra)
 ```
+## Summary Information: 
+Obesity rates in the United States was the topic of interest for our project. The data utilized in this project helped to present valuable information and see the prevalence of obesity by geographic location, sex, and race. One of the datasets we used in our project was a physical activity dataset that recorded the percentage of sufficient physical activity prevalence of male and females for each state and county. From this, a total of 3,194 observations were made from the states, counties, and country as a whole. Furthermore, the data indicates that the state with the highest prevalence of female physical activity in 2011 was Vermont, while the state with the highest prevalence of male physical activity in 2011 was Hawaii. In addition, the highest change in one state for female physical activity prevalence from 2001 to 2009 was 10.4 while the highest change in one state for male physical activity prevalence from 2001 to 2009 was 6.8.
 
-### Example 2: Initialize a variable and then use it
-
-## ABOUT THIS FILE: 
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
 ## Table:
 
+```{r, echo=FALSE}
+overall_table %>%
+  kbl() %>%
+  kable_paper("hover", full_width = F)
+
+```
+
+This table is a shortened version of the original, which included data for all US counties and states (not just states). The table displays 16 different features, all relating to obesity and exercise rates, by sex. It is important to have both types of information because this table can be used to analyse the effects of exercise on obesity rates. The table can also be used to show state obesity rates on charts or maps. The county data is especially useful for displaying more detailed maps. 
 
 ## Plots:
 
-Plot 1: Female Physical Activity Percentage vs Female Obesity Prevalence
+Plot 1: Female Physical Activity (%)  vs Female Obesity Prevalence (%)
 
 ```{r female_physical_activity, echo=FALSE}
 plot(female_physical_activity)
 ```
+
+Graph 1: Female Obesity Prevalence (%) vs. Female Sufficient Physical Activity Prevalence (%)
+
+This scatter plot shows the percentage of female obesity prevalence compared to the percentage of female sufficient physical activity prevalence in each state. This graph displays the correlation that with more participation in physical activity, the prevalence of obesity of females decreases. Thus, from this graph as well as the negative slope seen, it demonstrates that the percentage of women that engage in sufficient physical activity are less prone to obesity. It provides insights of the relevant topic of obesity and how promoting physical activity, in an aspect, can help to combat it.
+
+Plot 2: Prevalence of Obesity (%) by State
 
 ```{r WhiteRates, echo=FALSE}
 ggplot(data = WhiteRates) + 
@@ -51,11 +51,19 @@ ggplot(data = WhiteRates) +
   xlim(0, 100)
 ```
 
+Graph 2: Prevalence of Obesity by State
+
+This bar graph displays the recorded percent prevalence of obesity by state. Data for this graph was sourced from the Centers for DiseaseControl and Prevention (CDC) and was collected from 2019–2021. It is included as it presents valuable information of how prevalent obesity may be in a particular state. The data reveals which state’s population may be more affected by the issue of obesity and possible help to bring awareness to this issue. As can be seen, West Virginia has the highest obesity prevalence with a percentage of 40.6%. In contrast, the District of Columbia has the lowest obesity prevalence with a percentage of 24.7%. If the data visualization shows that specific states have a notably high percent prevalence of obesity, this can help bring attention and implement policies as well as interventions.
+
+Plot 3: Obesity Across Races Grouped by State
+
 ```{r updated_table4, echo=FALSE}
 ggplot(data = updated_table4) + 
   geom_col(mapping = aes(x = State, y = Prevalence, fill = Race), position = "dodge") + 
   ggtitle("Obesity across races grouped by state") + 
   ylim(0, 100)
-
 ```
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Graph 3: Race/Ethnicity Effect on Obesity
+
+Here we have a column chart representing the difference in obesity prevalence by race in the United States, as the best example, we chose three states representing the three regions (New York, Texas, and Washington). The data was collected from CDC’s National Center for Health Statistics. This chart helped us reveal interesting insights for our future research, on whether race has any direct or indirect influence on obesity prevalence. We can conclude that Asians are the most noticeable group among others, which is most probably affected by cultural values, while all other groups have almost similar results. This information helps exclude skeptical distractions and builds a strong foundation for our future research direction. 
