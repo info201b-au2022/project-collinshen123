@@ -14,42 +14,44 @@ AIANRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project
 
 
 
-White_in_Wa <- WhiteRates%>%
-  mutate(Race = "White in WA")%>%
-  filter(str_detect(State, "Washington"))
+White <- WhiteRates%>%
+  mutate(Race = "White")%>%
+  filter(str_detect(State, "Washington") | str_detect(State, "Texas") | str_detect(State, "New York"))
   
  
-Asian_in_Wa <- AsianRates%>%
-  mutate(Race = "Asian in WA")%>%
-  filter(str_detect(State, "Washington"))
+Asian <- AsianRates%>%
+  mutate(Race = "Asian")%>%
+  filter(str_detect(State, "Washington") | str_detect(State, "Texas") | str_detect(State, "New York"))
 
-updated_table <- White_in_Wa %>%
-  rbind(Asian_in_Wa)
+updated_table <- White %>%
+  rbind(Asian)
 
-Black_in_Wa <- BlackRates%>%
-  mutate(Race = "Black in WA")%>%
-  filter(str_detect(State, "Washington"))
+Black <- BlackRates%>%
+  mutate(Race = "Black")%>%
+  filter(str_detect(State, "Washington") | str_detect(State, "Texas") | str_detect(State, "New York"))
   
 updated_table2 <- updated_table %>%
-  rbind(Black_in_Wa)
+  rbind(Black)
 
-Hispanic_in_Wa <- HispanicRates%>%
-  mutate(Race = "Hispanic in WA")%>%
-  filter(str_detect(State, "Washington"))
+Hispanic <- HispanicRates%>%
+  filter(str_detect(State, "Washington") | str_detect(State, "Texas") | str_detect(State, "New York"))%>%
+  mutate(Race = "Hispanic")
 
 updated_table3 <- updated_table2 %>%
-  rbind(Hispanic_in_Wa)
+  rbind(Hispanic)
 
-AIAN_in_Wa <- AIANRates%>%
-  mutate(Race = "AIAN in WA")%>%
-  filter(str_detect(State, "Washington"))
+AIAN <- AIANRates%>%
+  mutate(Race = "AIAN")%>%
+  filter(str_detect(State, "Washington") | str_detect(State, "Texas") | str_detect(State, "New York"))
 
 updated_table4 <- updated_table3 %>%
-  rbind(AIAN_in_Wa)
+  rbind(AIAN)
 
 
 
 
-ggplot(data = WhiteRates) + 
-  geom_col(mapping = aes(x = Prevalence, y = Race))
+ggplot(data = updated_table4) + 
+  geom_col(mapping = aes(x = State, y = Prevalence, fill = Race), position = "dodge") + 
+  ggtitle("Obesity across races grouped by state") + 
+  ylim(0, 100)
 
