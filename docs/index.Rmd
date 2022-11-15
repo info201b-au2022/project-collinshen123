@@ -1,6 +1,6 @@
 ---
-title: "Your Project Title"
-author: "project team members"
+title: "Analysis of Obesity in the US"
+author: "Collin, Erzhan, Jaime, Kailynn"
 date: "Autumn 2022"
 output: html_document
 ---
@@ -18,20 +18,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ## ACCESSING THE /source DIRECTORY
 ### Example 1: Source some code and run a function
 ```{r}
-# Example 1: Note relative path, which can be read: Up one
-# directory(..), down into source (/source), and 
-# then "source" an R file (data_access.R)
-source("../source/data_access.R")
-data_access_test()
+source("../source/chart1.R")
+source("../source/Chart_state.R")
+source("../source/Chart_races.R")
 ```
 
 ### Example 2: Initialize a variable and then use it
-```{r}
-# Example 1: This function was "sourced" above
-msg <- data_access_test(" Morgan!")
-```
-
-> `r msg` Hope you have a good day!! 
 
 ## ABOUT THIS FILE: 
 
@@ -42,13 +34,28 @@ When you click the **Knit** button a document will be generated that includes bo
 ```{r cars}
 summary(cars)
 ```
+## Table:
 
-## Including Plots
 
-You can also embed plots, for example:
+## Plots:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+Plot 1: Female Physical Activity Percentage vs Female Obesity Prevalence
+
+```{r female_physical_activity, echo=FALSE}
+plot(female_physical_activity)
 ```
 
+```{r WhiteRates, echo=FALSE}
+ggplot(data = WhiteRates) + 
+  geom_col(mapping = aes(x = Prevalence, y = State)) +
+  xlim(0, 100)
+```
+
+```{r updated_table4, echo=FALSE}
+ggplot(data = updated_table4) + 
+  geom_col(mapping = aes(x = State, y = Prevalence, fill = Race), position = "dodge") + 
+  ggtitle("Obesity across races grouped by state") + 
+  ylim(0, 100)
+
+```
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
