@@ -9,3 +9,4 @@ chart_one <- barplot(race_washington,
                      col = "red",
                      ylim=c(0,100),
                      horiz = FALSE)
+
