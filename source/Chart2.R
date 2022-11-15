@@ -50,6 +50,6 @@ updated_table4 <- updated_table3 %>%
 
 
 
-ggplot(data = updated_table4) + 
+ggplot(data = WhiteRates) + 
   geom_col(mapping = aes(x = Prevalence, y = Race))
 
