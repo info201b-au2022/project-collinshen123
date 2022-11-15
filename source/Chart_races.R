@@ -52,3 +52,11 @@ ggplot(data = updated_table4) +
   ggtitle("Obesity across races grouped by state") + 
   ylim(0, 100)
 
+#Graph 3: Race/Ethnicity Effect on Obesity
+#Here we have a column chart representing the difference in obesity prevalence by race in the United States,
+#as the best example, we chose three states representing the three regions (New York, Texas, and Washington).
+#The data was collected from CDC’s National Center for Health Statistics. This chart helped us reveal interesting 
+#insights for our future research, on whether race has any direct or indirect influence on obesity prevalence. 
+#We can conclude that Asians are the most noticeable group among others, which is most probably affected 
+#by cultural values, while all other groups have almost similar results. This information helps exclude skeptical
+#distractions and builds a strong foundation for our future research direction. 
