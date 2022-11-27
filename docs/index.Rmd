@@ -81,7 +81,7 @@ This table is a shortened version of the original, which included data for all U
 
 Research Question 1: How do exercise habits of adults influence obesity rates? What is the significance of getting exercise and by how much does it affect obesity and possibly other health issues?
 
-[Dataset 1:](https://www.cdc.gov/obesity/data/adult.html)
+[Dataset 1:](https://www.healthdata.org/us-health/data-download)
 
 Plot 1: Female Physical Activity (%) vs Female Obesity Prevalence (%)
 
