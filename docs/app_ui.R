@@ -1,24 +1,47 @@
 
 First_Page <- tabPanel(
-  h4("First_Page"),
-  p("asdfghjkjhgfdfghjuiuytgfrdfghjuiuytgfrdefghjuiuytgfrghyju")
+  h4("Introduction"),
+  p("")
 )
 
 
 Second_Page <- tabPanel(
-  h4("Second_Page"),
+  h4("Female Physical Activity (%) vs Female Obesity Prevalence (%)"),
   p("This is the second page"),
-  img(src = "https://e7.pngegg.com/pngimages/505/408/png-clipart-random-password-generator-macupdate-doorman-fictional-character-cartoon-thumbnail.png")
+)
+
+Third_Page <-tabPanel(
+  h4("Prevalence of Obesity (%) by State"),
+  p("")
+)
+
+
+Fourth_Page <-tabPanel(
+  h4("Obesity Across Races Grouped by State"),
+  p("")
+)
+
+Fifth_Page <-tabPanel(
+  h4("Summary and takeaways"),
+  p("")
+)
+
+
+Sixth_Page <-tabPanel(
+  h4("Report page"),
+  p("")
 )
 
 
 
-
-
 ui <- navbarPage(
-  title = "Demo",
+  title = "P3",
   First_Page,
-  Second_Page
+  Second_Page,
+  Third_Page,
+  Fourth_Page,
+  Fifth_Page,
+  Sixth_Page
 )
 
 
