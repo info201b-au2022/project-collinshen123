@@ -2,6 +2,8 @@ library(dplyr)
 
 
 source("app_ui.R") 
+WhiteRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/White_Obesity_Rates.csv", stringsAsFactors = FALSE )
+
 
 #Reformat chart 1 datatable
 physical_activity <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Physical_Activity_Table.csv")
@@ -29,6 +31,10 @@ server <- function(input, output) {
       geom_point(mapping = aes(x = x_value, y = y_value))
     
     exercise_plot
+  })
+  
+  output$scatter <- renderPlotly({
+    return(build_scatter(WhiteRates, input$search))
   })
 }
 
