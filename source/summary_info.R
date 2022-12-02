@@ -9,7 +9,7 @@ summary_info <- list()
 
 # There is an obvservation for every county in the US as well as summaries for each state and
 # the whole US
-summary_info$num_observations <- nrow(PA_chart)
+summary_info$num_observations <- prettyNum(nrow(PA_chart),big.mark=",",scientific=FALSE)
 
 # The state with the highest prevalence of female physical activity in 2011 was...
 summary_info$highest_PA_female <- PA_chart %>%
