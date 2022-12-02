@@ -21,7 +21,7 @@ colnames(obesity) <- c("State", "O Male 2001", "O Female 2001", "O Male 2009", "
 data_exercise <- left_join(obesity, physical_activity, by = "State")
 
 # Start shinyServer
-server_exercise <- function(input, output) {
+server <- function(input, output) {
   x_value <- paste("PA", input$sex_input, input$year_input)
   y-value <- paste("O", input$sex_input, input$year_input)
   output$exercise_output <- renderPlotly({

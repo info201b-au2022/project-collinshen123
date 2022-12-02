@@ -6,8 +6,24 @@ First_Page <- tabPanel(
 
 
 Second_Page <- tabPanel(
-  h4("Female Physical Activity (%) vs Female Obesity Prevalence (%)"),
-  p("This is the second page"),
+  h4("Exercise"),
+  p("asdfghjkjhgfdfghjuiuytgfrdfghjuiuytgfrdefghjuiuytgfrghyju"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(
+        inputId = "year_input",
+        label = "Year:" ,
+        choices = c("2001", "2009", "2011"))
+    ),
+    selectInput(
+      inputId = "sex_input",
+      label = "Change sex: ",
+      choices = c("Male", "Female")
+    )
+  ),
+  mainPanel(
+    plotlyOutput(outputId = "exercise_output")
+  )
 )
 
 Third_Page <-tabPanel(
