@@ -9,7 +9,7 @@ BlackRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/projec
 HispanicRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Hispanic_Obesity_Rates%20.csv", stringsAsFactors = FALSE )
 AIANRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/AIAN_Obesity_Rates.csv", stringsAsFactors = FALSE )
 
-
+new_df <- bind_rows(AsianRates, WhiteRates, BlackRates)
 
 White <- WhiteRates%>%
   mutate(Race = "White")%>%

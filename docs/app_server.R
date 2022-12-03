@@ -2,7 +2,7 @@ library(dplyr)
 
 
 source("app_ui.R") 
-WhiteRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/White_Obesity_Rates.csv", stringsAsFactors = FALSE )
+
 
 
 #Reformat chart 1 datatable
@@ -22,6 +22,45 @@ colnames(obesity) <- c("State", "O Male 2001", "O Female 2001", "O Male 2009", "
 
 data_exercise <- left_join(obesity, physical_activity, by = "State")
 
+
+
+
+#chart 3
+AsianRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Asian_Obesity_Rates.csv", stringsAsFactors = FALSE )
+WhiteRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/White_Obesity_Rates.csv", stringsAsFactors = FALSE )
+BlackRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Black_Obesity_Rates.csv", stringsAsFactors = FALSE )
+HispanicRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Hispanic_Obesity_Rates%20.csv", stringsAsFactors = FALSE )
+AIANRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/AIAN_Obesity_Rates.csv", stringsAsFactors = FALSE )
+
+new_df <- bind_rows(AsianRates, WhiteRates, BlackRates, HispanicRates, AIANRates)%>%
+  arrange(State)
+
+build_scatter <- function(data,  search = "", xvar = "year", yvar = "coal_co2") {
+  # Get x and y max
+  xmax <- max(data[,xvar]) + 10
+  ymax <- max(data[,yvar]) + 100
+  xmin <- min(data[,xvar])
+  ymin <- min(data[,yvar])
+  
+  
+  # Filter data based on search 
+  data <- data %>% 
+    filter(grepl(search, country))
+  
+  # Plot data
+  p <- plot_ly(x = data[, xvar],
+               y = data[, yvar], 
+               mode="markers", 
+               marker = list(
+                 opacity = .4, 
+                 size = 10
+               )) %>% 
+    layout(xaxis = list(range = c(xmin, xmax), title = xvar), 
+           yaxis = list(range = c(ymin, ymax), title = yvar)
+    )
+  return(p)
+}
+
 # Start shinyServer
 server <- function(input, output) {
   x_value <- paste("PA", input$sex_input, input$year_input)
@@ -34,7 +73,7 @@ server <- function(input, output) {
   })
   
   output$scatter <- renderPlotly({
-    return(build_scatter(WhiteRates, input$search))
+    return(build_scatter(df, input$select))
   })
 }
 
