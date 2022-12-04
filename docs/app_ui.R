@@ -31,38 +31,34 @@ Third_Page <-tabPanel(
   p(""),
   
   
-  scatter_sidebar_content <- sidebarPanel(
-    textInput("search", label = "Find a State", value = "")
-  ),
-  
-  # Define a variable `scatter_main_content` that is a `mainPanel()` for your
-  # second (scatter) page that contains the `plotlyOutput()` of your scatter
-  scatter_main_content <- mainPanel(
-    plotlyOutput("scatter")
-  ),
-  
-  scatter_panel <- tabPanel(
-    "Scatter",
-    
-    # Add a titlePanel to your tab
-    titlePanel("Population v.s. Vote Power"),
-    
-    # Create a sidebar layout for this tab (page)
-    sidebarLayout(
-      
-      # Display your `scatter_sidebar_content`
-      scatter_sidebar_content,
-      
-      # Display your `scatter_main_content`
-      scatter_main_content
-    )
-  ) 
+ 
 )
 
 
-Fourth_Page <-tabPanel(
-  h4("Obesity Across Races Grouped by State"),
-  p("")
+Fourth_Page <- tabPanel(
+  h4("Second_Page"),
+  p("This is the second page"),
+  
+  map_sidebar_content <- sidebarPanel(
+    selectInput(
+      "mapvar",
+      label = "Variable to Map",
+      choices = list(
+        "White Prevalence",
+        "Asian Prevalence",
+        "Black Prevalence",
+        "Hispanic Prevalence",
+        "AIAN Prevalence"
+      )
+      
+    )
+  ),
+  
+  
+  map_main_content <- mainPanel(
+    plotlyOutput("map")
+  )
+  
 )
 
 Fifth_Page <-tabPanel(

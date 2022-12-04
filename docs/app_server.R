@@ -32,31 +32,46 @@ BlackRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/projec
 HispanicRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Hispanic_Obesity_Rates%20.csv", stringsAsFactors = FALSE )
 AIANRates <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/AIAN_Obesity_Rates.csv", stringsAsFactors = FALSE )
 
-new_df <- bind_rows(AsianRates, WhiteRates, BlackRates, HispanicRates, AIANRates)%>%
-  arrange(State)
+colnames(WhiteRates) <- c("State", "White Prevalence")
+colnames(AsianRates) <- c("State", "Asian Prevalence")
+colnames(BlackRates) <- c("State", "Black Prevalence")
+colnames(HispanicRates) <- c("State", "Hispanic Prevalence")
+colnames(AIANRates) <- c("State", "AIAN Prevalence")
 
-build_scatter <- function(data,  search = "", xvar = "year", yvar = "coal_co2") {
-  # Get x and y max
-  xmax <- max(data[,xvar]) + 10
-  ymax <- max(data[,yvar]) + 100
-  xmin <- min(data[,xvar])
-  ymin <- min(data[,yvar])
+new_df <- left_join( WhiteRates, AsianRates)
+new_df1 <- left_join(new_df, BlackRates)
+new_df2 <- left_join(new_df1, HispanicRates)
+new_df3 <- left_join(new_df2, AIANRates)
+
+
+
+
+build_map <- function(data, map.var) {
   
   
-  # Filter data based on search 
-  data <- data %>% 
-    filter(grepl(search, country))
+  # give state boundaries a white border
+  l <- list(color = toRGB("white"), width = 2)
   
-  # Plot data
-  p <- plot_ly(x = data[, xvar],
-               y = data[, yvar], 
-               mode="markers", 
-               marker = list(
-                 opacity = .4, 
-                 size = 10
-               )) %>% 
-    layout(xaxis = list(range = c(xmin, xmax), title = xvar), 
-           yaxis = list(range = c(ymin, ymax), title = yvar)
+  # specify some map projection/options
+  g <- list(
+    scope = 'usa',
+    projection = list(type = 'albers usa'),
+    showlakes = TRUE,
+    lakecolor = toRGB('white')
+  )
+  
+  # Make equation for map color / text
+  var.equation <- paste0('~', map.var)
+  
+  # Plot
+  p <- plot_geo(data, locationmode = 'USA-states') %>%
+    add_trace( 
+      z = data[,map.var], text = state.name, span = I(0), locations = state.abb  
+    ) %>%
+    colorbar(title = "Color Title") %>%
+    layout(
+      title = str_to_title(map.var),
+      geo = g
     )
   return(p)
 }
@@ -72,8 +87,8 @@ server <- function(input, output) {
     exercise_plot
   })
   
-  output$scatter <- renderPlotly({
-    return(build_scatter(df, input$select))
+  output$map <- renderPlotly({
+    return(build_map(new_df3, input$mapvar))
   })
 }
 
