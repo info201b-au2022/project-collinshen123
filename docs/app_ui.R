@@ -6,23 +6,23 @@ First_Page <- tabPanel(
 
 
 Second_Page <- tabPanel(
-  h4("Exercise"),
-  p("asdfghjkjhgfdfghjuiuytgfrdfghjuiuytgfrdefghjuiuytgfrghyju"),
+  "Physical Activity vs Obesity",
   sidebarLayout(
     sidebarPanel(
       selectInput(
         inputId = "year_input",
         label = "Year:" ,
-        choices = c("2001", "2009", "2011"))
+        choices = c("2001", "2009", "2011")
+      ),
+      radioButtons(
+        inputId = "sex_input",
+        label = "Change sex: ",
+        choices = c("Male", "Female")
+      )
     ),
-    selectInput(
-      inputId = "sex_input",
-      label = "Change sex: ",
-      choices = c("Male", "Female")
+    mainPanel(
+      plotOutput("exercise_output")
     )
-  ),
-  mainPanel(
-    plotlyOutput(outputId = "exercise_output")
   )
 )
 
