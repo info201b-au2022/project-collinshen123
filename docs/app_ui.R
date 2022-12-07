@@ -1,14 +1,14 @@
 
+source("app_server.R") 
 First_Page <- tabPanel(
   h4("Introduction"),
   h4("Analysis of Obesity in the U.S."),
-  h4("Authors: "),
-  p(" Collin Shen, Erzhan Umarov, Jaime Li, Kailynn Nguyen"),
+  h4("Authors: Collin Shen, Erzhan Umarov, Jaime Li, Kailynn Nguyen"),
   p("Code Name: Yum Yum"),
   p("Affiliation: INFO 201: Technical Foundations of Informatics – 
     The Information School – University of Washington"),
   p("Date: Autumn 2022"),
-  
+  img(src = "https://images.app.goo.gl/rS3dStYfkkPW85An8"),
   h4("Abstract"),
   p("In this project, we are concerned with the issue of obesity, 
     specifically, the prevalence of the rates in the US. 
@@ -196,9 +196,7 @@ Fifth_Page <-tabPanel(
     on religion, socioeconomic status, and cultural differences. As reported by the 
     US Department of Health and Human Services Office of Minority Health (OMH), 
     African-American women have the highest rates of being overweight or having 
-    obesity, compared with other racial or ethnic groups in the US. As can be seen in 
-    the graph, obesity is the most prevalent in African American individuals when 
-    compared to the other race groups. "),
+    obesity, compared with other racial or ethnic groups in the US."),
   h4("Discussion: "),
   p("We expect the data to imply that communities with lower incomes experience higher 
   rates of obesity, due to the fact that eating unhealthy processed foods in America has 
@@ -319,7 +317,7 @@ Sixth_Page <-tabPanel(
 
 
 ui <- navbarPage(
-  title = "P3",
+  title = "Study of Obesity in the United States",
   First_Page,
   Second_Page,
   Third_Page,

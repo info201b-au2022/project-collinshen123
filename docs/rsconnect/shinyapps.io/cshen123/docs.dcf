@@ -1,0 +1,13 @@
+name: docs
+title: docs
+username:
+account: cshen123
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7842576
+bundleId: 6607648
+url: https://cshen123.shinyapps.io/docs/
+when: 1670456075.62151
+lastSyncTime: 1670456075.62152
+asMultiple: FALSE
+asStatic: FALSE
