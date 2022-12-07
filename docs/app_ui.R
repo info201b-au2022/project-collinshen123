@@ -8,7 +8,6 @@ First_Page <- tabPanel(
   p("Affiliation: INFO 201: Technical Foundations of Informatics – 
     The Information School – University of Washington"),
   p("Date: Autumn 2022"),
-  img(src = "https://images.app.goo.gl/rS3dStYfkkPW85An8"),
   h4("Abstract"),
   p("In this project, we are concerned with the issue of obesity, 
     specifically, the prevalence of the rates in the US. 
