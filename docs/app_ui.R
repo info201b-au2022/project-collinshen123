@@ -6,7 +6,7 @@ First_Page <- tabPanel(
 
 
 Second_Page <- tabPanel(
-  "Physical Activity vs Obesity",
+  h4("Physical Activity vs Obesity"),
   sidebarLayout(
     sidebarPanel(
       selectInput(
@@ -29,15 +29,15 @@ Second_Page <- tabPanel(
 Third_Page <-tabPanel(
   h4("Prevalence of Obesity (%) by State"),
   p(""),
-  bar_sidebar_content <- sidebarPanel(
-  checkboxGroupInput(
-    inputId = "select_states",
-    label = "States",
-    choices = state.name,
-    selected = "Washington"
-  )
+  sidebarPanel(
+    checkboxGroupInput(
+      inputId = "select_states",
+      label = "States",
+      choices = state.name,
+      selected = ""
+    )
   ),
-  bar_main_content <- mainPanel(
+  mainPanel(
     plotlyOutput("bar")
   )
   
@@ -46,13 +46,13 @@ Third_Page <-tabPanel(
 
 
 Fourth_Page <- tabPanel(
-  h4("Incarceration by US State"),
+  h4("Obesity % by state in the US"),
   p("This map shows the incarceration percentages in each state for the chosen race."),
   
   map_sidebar_content <- sidebarPanel(
     selectInput(
       "mapvar",
-      label = "Variable to Map",
+      label = "Select Race",
       choices = list(
         "White Prevalence",
         "Asian Prevalence",

@@ -1,26 +1,31 @@
 library(dplyr)
 library(ggplot2)
+library(plotly)
 
 source("app_ui.R") 
 
 
 
+
+# CHART 1: EXERCISE VS OBESITY DATA TABLE BELLOW:
+# ================================================
 #Reformat chart 1 datatable
-# physical_activity <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Physical_Activity_Table.csv")
-# physical_activity <- physical_activity %>% 
-#   filter(County == "") %>% 
-#   select(c(1, 3, 4, 5, 6, 7, 8))
-# #View(physical_activity)
-# colnames(physical_activity) <- c("State", "PA Male 2001", "PA Female 2001", "PA Male 2009", "PA Female 2009", "PA Male 2011", "PA Female 2011")
-# 
-# obesity <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/County_Obesity_Table.csv")
-# obesity <- obesity %>% 
-#   filter(County == "") %>% 
-#   select(c(1, 3, 4, 5, 6, 7, 8))
-# 
-# colnames(obesity) <- c("State", "O Male 2001", "O Female 2001", "O Male 2009", "O Female 2009", "O Male 2011", "O Female 2011")
-# 
-# data_exercise <- left_join(obesity, physical_activity, by = "State")
+physical_activity <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Physical_Activity_Table.csv")
+physical_activity <- physical_activity %>% 
+  filter(County == "") %>% 
+  select(c(1, 3, 4, 5, 6, 7, 8))
+#View(physical_activity)
+colnames(physical_activity) <- c("State", "PA Male 2001", "PA Female 2001", "PA Male 2009", "PA Female 2009", "PA Male 2011", "PA Female 2011")
+
+obesity <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/County_Obesity_Table.csv")
+obesity <- obesity %>% 
+  filter(County == "") %>% 
+  select(c(1, 3, 4, 5, 6, 7, 8))
+
+colnames(obesity) <- c("State", "O Male 2001", "O Female 2001", "O Male 2009", "O Female 2009", "O Male 2011", "O Female 2011")
+
+data_exercise <- left_join(obesity, physical_activity, by = "State")
+
 
 
 
@@ -31,14 +36,15 @@ WhiteRates1 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/proje
 
 
 
-build_bar <- function(data,  select_states = "") {
+build_bar <- function(data, select_states) {
   
   
   # Filter data based on search 
   data <- data %>% 
     filter(State %in% select_states)
   
-  
+
+ymax <- max(data$Prevalence) * 1.1
 
 
   # Plot data
@@ -47,10 +53,11 @@ build_bar <- function(data,  select_states = "") {
                name = "White Obesity Prevalence",
                type = "bar"
                )%>%
-  layout(xaxis = list(select_states), title = "States") 
-         yaxis = list(range = c(min(data$Prevalence, max(data$Prevalence)), title = "Prevalence")
-  )
-    
+    layout(title = "White Obesity Prevalence % by state",
+            xaxis = list(title = "States"), 
+            yaxis = list(range = c(0, ymax), title = "White Obesity Prevalence %")
+    )
+       
   return(p1)
 }
 
@@ -104,45 +111,21 @@ build_map <- function(data, map.var) {
     ) %>%
     colorbar(title = "Color Title") %>%
     layout(
-      title = "Incarceration in the US",
+      title = "Obesity % by state in the US",
       geo = g
     )
   return(p)
 }
 
-# CHART 1: EXERCISE VS OBESITY DATA TABLE BELLOW:
-# ================================================
-#Reformat chart 1 datatable
-physical_activity <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/Physical_Activity_Table.csv")
-physical_activity <- physical_activity %>% 
-  filter(County == "") %>% 
-  select(c(1, 3, 4, 5, 6, 7, 8))
-#View(physical_activity)
-colnames(physical_activity) <- c("State", "PA Male 2001", "PA Female 2001", "PA Male 2009", "PA Female 2009", "PA Male 2011", "PA Female 2011")
 
-obesity <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-collinshen123/main/data/County_Obesity_Table.csv")
-obesity <- obesity %>% 
-  filter(County == "") %>% 
-  select(c(1, 3, 4, 5, 6, 7, 8))
-
-colnames(obesity) <- c("State", "O Male 2001", "O Female 2001", "O Male 2009", "O Female 2009", "O Male 2011", "O Female 2011")
-
-data_exercise <- left_join(obesity, physical_activity, by = "State")
 
 
 # Start shinyServer
 server <- function(input, output) {
-  # x_value <- paste("PA", input$sex_input, input$year_input)
-  # y-value <- paste("O", input$sex_input, input$year_input)
-  # output$exercise_output <- renderPlotly({
-  #   exercise_plot <- ggplot(data = data_exercise)+
-  #     geom_point(mapping = aes(x = x_value, y = y_value))
-  #   
-  #   exercise_plot
-  # })
+ 
   
   output$bar <- renderPlotly({
-    return(build_bar(WhiteRates, input$select_states))
+    return(build_bar(WhiteRates1, input$select_states))
   })
   
   output$exercise_output <- renderPlot({
