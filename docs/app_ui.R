@@ -28,13 +28,47 @@ Second_Page <- tabPanel(
 
 Third_Page <-tabPanel(
   h4("Prevalence of Obesity (%) by State"),
-  p("")
+  p(""),
+  bar_sidebar_content <- sidebarPanel(
+  checkboxGroupInput(
+    inputId = "select_states",
+    label = "States",
+    choices = state.name,
+    selected = "Washington"
+  )
+  ),
+  bar_main_content <- mainPanel(
+    plotlyOutput("bar")
+  )
+  
+ 
 )
 
 
-Fourth_Page <-tabPanel(
-  h4("Obesity Across Races Grouped by State"),
-  p("")
+Fourth_Page <- tabPanel(
+  h4("Incarceration by US State"),
+  p("This map shows the incarceration percentages in each state for the chosen race."),
+  
+  map_sidebar_content <- sidebarPanel(
+    selectInput(
+      "mapvar",
+      label = "Variable to Map",
+      choices = list(
+        "White Prevalence",
+        "Asian Prevalence",
+        "Black Prevalence",
+        "Hispanic Prevalence",
+        "AIAN Prevalence"
+      )
+      
+    )
+  ),
+  
+  
+  map_main_content <- mainPanel(
+    plotlyOutput("map")
+  )
+  
 )
 
 Fifth_Page <-tabPanel(
