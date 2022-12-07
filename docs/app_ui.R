@@ -29,15 +29,25 @@ Second_Page <- tabPanel(
 Third_Page <-tabPanel(
   h4("Prevalence of Obesity (%) by State"),
   p(""),
-  
+  bar_sidebar_content <- sidebarPanel(
+  checkboxGroupInput(
+    inputId = "select_states",
+    label = "States",
+    choices = state.name,
+    selected = "Washington"
+  )
+  ),
+  bar_main_content <- mainPanel(
+    plotlyOutput("bar")
+  )
   
  
 )
 
 
 Fourth_Page <- tabPanel(
-  h4("Second_Page"),
-  p("This is the second page"),
+  h4("Incarceration by US State"),
+  p("This map shows the incarceration percentages in each state for the chosen race."),
   
   map_sidebar_content <- sidebarPanel(
     selectInput(
